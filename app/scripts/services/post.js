@@ -6,7 +6,10 @@ app.factory('Post', ['$firebase', 'FIREBASE_URL', function ($firebase, FIREBASE_
     var Post = {
         all: posts,
         create: function (post) {
-            return posts.$add(post);
+            return posts.$add(post).then(function(postRef) {
+                $firebase(ref.child('user_posts').child(post.creatorUID)).$push(postRef.name());
+                return postRef;
+            });
         },
         find: function (postId) {
             return $firebase(ref.child(postId)).$asObject();

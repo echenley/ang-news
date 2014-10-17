@@ -1,47 +1,51 @@
 <div class="row">
 
-	<div class="col-md-2 col-sm-1"></div>
+    <div class="col-md-2 col-sm-1"></div>
 
-	<div class="col-md-4 col-sm-5">
-		<div class="auth-form">
-			<h2>Register</h2>
-			<form ng-submit="register(newUser)">
-				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="email" ng-model="newUser.email" placeholder="Email" class="form-control" id="email">
-				</div>
-				<div class="form-group">
-					<label for="password">Password</label>
-					<input type="password" ng-model="newUser.password" placeholder="Password" class="form-control" id="password">
-				</div>
-				<div class="form-group">
-					<input type="submit" value="Register" class="btn btn-primary">
-				</div>
-				<p ng-show="registrationError" class="text-danger text-center">{{registrationError}}</p>
-			</form>
-		</div>
-	</div>
+    <div class="col-md-4 col-sm-5">
+        <div class="auth-form">
+            <h2>Register</h2>
+            <form ng-submit="register(newUser)">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" ng-model="newUser.username" placeholder="Username" class="form-control" id="username">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" ng-model="newUser.email" placeholder="Email" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" ng-model="newUser.password" placeholder="Password" class="form-control" id="password">
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Register" class="btn btn-primary">
+                </div>
+                <p ng-show="registrationError" class="text-danger text-center">{{registrationError}}</p>
+            </form>
+        </div>
+    </div>
 
-	<div class="col-md-4 col-sm-5">
-		<div class="auth-form">
-			<h2>Log In</h2>
-			<form ng-submit="login(user)">
-				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="email" ng-model="user.email" placeholder="Email" class="form-control" id="email">
-				</div>
-				<div class="form-group">
-					<label for="password">Password</label>
-					<input type="password" ng-model="user.password" placeholder="Password" class="form-control" id="password">
-				</div>
-				<div class="form-group">
-					<input type="submit" value="Log In" class="btn btn-primary">
-				</div>
-				<p ng-show="loginError" class="text-danger text-center">{{loginError}}</p>
-			</form>
-		</div>
-	</div>
+    <div class="col-md-4 col-sm-5">
+        <div class="auth-form">
+            <h2>Log In</h2>
+            <form ng-submit="login(user)">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" ng-model="user.email" placeholder="Email" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" ng-model="user.password" placeholder="Password" class="form-control" id="password">
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Log In" class="btn btn-primary">
+                </div>
+                <p ng-show="loginError" class="text-danger text-center">{{loginError}}</p>
+            </form>
+        </div>
+    </div>
 
-	<div class="col-md-2 col-sm-1"></div>
+    <div class="col-md-2 col-sm-1"></div>
 
 </div>

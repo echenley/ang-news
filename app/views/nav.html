@@ -21,11 +21,17 @@
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
         </form>
-        <ul class="nav navbar-nav navbar-right" ng-show="signedIn()">
-            <li><a href="#" ng-click="logout()">Logout</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right" ng-hide="signedIn()">
-            <li><a ng-href="#/login">Login/Register</a></li>
+        <ul class="nav navbar-nav navbar-right">
+            <li ng-show="signedIn()">
+                <p class="navbar-text">{{user.profile.username}}</p>
+            </li>
+            <li ng-show="signedIn()">
+                <a ng-href="#/users/{{user.uid}}">
+                    <img ng-src="http://www.gravatar.com/avatar/{{user.profile.md5_hash}}" class="nav-pic">
+                </a>
+            </li>
+            <li><a ng-show="signedIn()" href="#" ng-click="logout()">Logout</a></li>
+            <li><a ng-hide="signedIn()" ng-href="#/login">Login/Register</a></li>
         </ul>
     </div><!-- /.navbar-collapse -->
 </nav>

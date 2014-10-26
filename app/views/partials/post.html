@@ -1,0 +1,20 @@
+<div class="col-xs-1"></div>
+<div class="col-md-9 col-xs-11">
+    <div class="info">
+        <a href="{{ post.url }}" class="title-link">
+            {{ post.title }}
+            <span class="url">({{ post.url | hostNameFromUrl }})</span>
+        </a>
+    </div>
+    <div>
+        <span>{{ post.score || 0 }} votes</span>
+        &mdash;
+        <span>submitted by <a ng-href="#/users/{{ post.creatorUID }}">{{ post.creator || 'nobody' }}</a></span>
+        &mdash;
+        <a href="#/posts/{{ post.$id }}">{{ post.commentCount }} comments</a>
+        <span ng-show="signedIn() && user.uid === post.creatorUID">
+            &mdash; <a ng-click="deletePost(post)">delete</a>
+        </span>
+    </div>
+</div>
+<div class="col-md-2"></div>

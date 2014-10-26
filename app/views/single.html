@@ -1,0 +1,75 @@
+<div class="container posts-page">
+
+    <div class="post row">
+        <div class="col-xs-1">
+        </div>
+        <div class="col-md-9 col-xs-11">
+            <div class="info">
+                <a ng-href="{{ post.url }}">
+                    {{ post.title }}
+                    <span class="url">({{ post.url | hostNameFromUrl }})</span>
+                </a>
+            </div>
+            <div>
+                <span>
+                    submitted by
+                    <a ng-href="#/users/{{ post.creatorUID }}">
+                        {{ post.creator }}
+                    </a>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-2">
+        </div>
+    </div>
+
+    <h3>Comments</h3>
+
+    <div ng-repeat="comment in comments" class="row cmt">
+        <div class="col-md-12">
+            <p>{{ comment.text }}</p>
+            <p class="author">posted by
+                <a ng-href="#/users/{{ comment.creatorUID }}">
+                    {{ comment.creator }}
+                </a>
+				<a ng-href="" ng-click="deleteComment(comment)" ng-show="signedIn() && comment.creatorUID === user.uid">(delete)</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="cmt-form">
+        <div ng-hide="signedIn()">
+            <p><a href="#/login">Sign in</a> to post a comment</p>
+        </div>
+
+        <form ng-show="signedIn()" ng-submit="addComment(commentText)">
+            <textarea
+                ng-model="commentText"
+                placeholder="Post a Comment"
+                class="form-control"></textarea><br>
+            <input type="submit" value="Post Comment" class="btn btn-primary">
+        </form>
+    </div>
+
+</div>
+
+<!-- <a href="/"><span class="glyphicon glyphicon-arrow-left"></span> Back to Posts</a>
+
+<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+
+<hr>
+
+<form ng-submit="submitPost(post)">
+	<h4 class="text-muted">Submit a Comment</h4>
+	<div class="form-group">
+		<label for="comment-name">Name</label>
+		<input type="text" ng-model="comment.name" class="form-control" id="comment-name">
+	</div>
+	<div class="form-group">
+		<label for="comment-body">Comment</label>
+		<textarea ng-model="comment.body" class="form-control" id="comment-body"></textarea>
+	</div>
+	<div class="form-group">
+		<input type="submit" value="Add Post" class="btn btn-primary">
+	</div>
+</form> -->

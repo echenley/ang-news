@@ -7,20 +7,18 @@ app.controller('NavCtrl', ['$scope', '$location', 'Post', 'Auth',
             title: ''
         };
 
-        $scope.logout = function () {
-            Auth.logout();
-        };
-        $scope.signedIn = function () {
-            return Auth.signedIn();
-        };
+        $scope.logout = Auth.logout;
+        $scope.signedIn = Auth.signedIn;
         $scope.user = Auth.user;
         
         $scope.submitPost = function (post) {
-            if (post.title === '') {
-                return;
-            }
-            $scope.post.creator = $scope.user.profile.username;
-            $scope.post.creatorUID = $scope.user.uid;
+            post.title = post.title.trim();
+            if (!post.title) { return; }
+
+            post.creator = $scope.user.profile.username;
+            post.creatorUID = $scope.user.uid;
+            post.commentCount = 0;
+
             Post.create(post).then(function (ref) {
                 $location.path('/posts/' + ref.name());
                 $scope.post = {

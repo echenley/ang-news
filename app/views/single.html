@@ -1,35 +1,14 @@
-<div class="container posts-page">
+<div class="posts-page" ng-cloak>
 
-    <div class="post row">
-        <div class="col-xs-1">
-        </div>
-        <div class="col-md-9 col-xs-11">
-            <div class="info">
-                <a ng-href="{{ post.url }}">
-                    {{ post.title }}
-                    <span class="url">({{ post.url | hostNameFromUrl }})</span>
-                </a>
-            </div>
-            <div>
-                <span>
-                    submitted by
-                    <a ng-href="#/users/{{ post.creatorUID }}">
-                        {{ post.creator }}
-                    </a>
-                </span>
-            </div>
-        </div>
-        <div class="col-md-2">
-        </div>
-    </div>
+    <div class="post row" ng-include="'views/partials/post.html'"></div>
 
-    <h3>Comments</h3>
+    <h3 class="row">Comments</h3>
 
-    <div ng-repeat="comment in comments" class="row cmt">
+    <div ng-repeat="comment in comments" class="row post">
         <div class="col-md-12">
             <p>{{ comment.text }}</p>
             <p class="author">posted by
-                <a ng-href="#/users/{{ comment.creatorUID }}">
+                <a ng-href="/users/{{ comment.creatorUID }}">
                     {{ comment.creator }}
                 </a>
 				<a ng-href="" ng-click="deleteComment(comment)" ng-show="signedIn() && comment.creatorUID === user.uid">(delete)</a>
@@ -37,9 +16,9 @@
         </div>
     </div>
 
-    <div class="cmt-form">
+    <div class="cmt-form row">
         <div ng-hide="signedIn()">
-            <p><a href="#/login">Sign in</a> to post a comment</p>
+            <p><a href="/login">Sign in</a> to post a comment</p>
         </div>
 
         <form ng-show="signedIn()" ng-submit="addComment(commentText)">

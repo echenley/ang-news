@@ -1,4 +1,12 @@
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+.container {
+    max-width: 90%;
+}
+
 /* NAV BAR */
 .nav-pic {
     margin: -2px 5px 0 0;
@@ -76,7 +84,7 @@
 .cmt {
     margin-top:10px;
     padding-top:10px;
-    border-top:1px solid #ccc;
+    border:1px solid #ccc;
 }
 
 .cmt .author {

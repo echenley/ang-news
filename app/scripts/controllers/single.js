@@ -1,9 +1,9 @@
 'use strict';
 
-app.controller('PostViewCtrl', ['$scope', '$routeParams', 'Post', 'Auth',
-	function ($scope, $routeParams, Post, Auth) {
-	    $scope.post = Post.find($routeParams.postId);
-	    $scope.comments = Post.comments($routeParams.postId);
+app.controller('SingleCtrl', ['$scope', '$routeParams', 'Post', 'Auth', 'post', 'comments',
+	function ($scope, $routeParams, Post, Auth, post, comments) {
+	    $scope.post = post;
+	    $scope.comments = comments;
 
 	    $scope.user = Auth.user;
 	    $scope.signedIn = Auth.signedIn;
@@ -32,3 +32,4 @@ app.controller('PostViewCtrl', ['$scope', '$routeParams', 'Post', 'Auth',
 	    };
 
 	}]);
+

@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" ng-href="#/">ng-news</a>
+        <a class="navbar-brand" ng-href="/">ng-news</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -23,15 +23,15 @@
         </form>
         <ul class="nav navbar-nav navbar-right">
             <li ng-show="signedIn()">
-                <p class="navbar-text">{{ user.profile.username }}</p>
+                <a ng-href="/users/{{user.uid}}">{{ user.profile.username }}</a>
             </li>
             <li ng-show="signedIn()">
-                <a ng-href="#/users/{{user.uid}}">
-                    <img ng-src="http://www.gravatar.com/avatar/{{user.profile.md5_hash}}" class="nav-pic">
+                <a ng-href="/users/{{user.uid}}">
+                    <img ng-src="http://www.gravatar.com/avatar/{{ user.profile.md5_hash }}" class="nav-pic">
                 </a>
             </li>
-            <li><a ng-show="signedIn()" href="#" ng-click="logout()">Logout</a></li>
-            <li><a ng-hide="signedIn()" ng-href="#/login">Login/Register</a></li>
+            <li><a ng-show="signedIn()" ng-click="logout()">Logout</a></li>
+            <li><a ng-hide="signedIn()" ng-href="/login">Login/Register</a></li>
         </ul>
     </div><!-- /.navbar-collapse -->
 </nav>

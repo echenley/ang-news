@@ -1,5 +1,4 @@
-<div class="col-xs-1"></div>
-<div class="col-md-9 col-xs-11">
+<div class="col-md-12">
     <div class="info">
         <a href="{{ post.url }}" class="title-link">
             {{ post.title }}
@@ -9,12 +8,11 @@
     <div>
         <span>{{ post.score || 0 }} votes</span>
         &mdash;
-        <span>submitted by <a ng-href="#/users/{{ post.creatorUID }}">{{ post.creator || 'nobody' }}</a></span>
+        <span>submitted by <a ng-href="/users/{{ post.creatorUID }}">{{ post.creator || 'nobody' }}</a></span>
         &mdash;
-        <a href="#/posts/{{ post.$id }}">{{ post.commentCount }} comments</a>
+        <a href="/posts/{{ post.$id }}">{{ post.commentCount }} comment{{ post.commentCount !== 1 ? 's' : '' }}</a>
         <span ng-show="signedIn() && user.uid === post.creatorUID">
             &mdash; <a ng-click="deletePost(post)">delete</a>
         </span>
     </div>
 </div>
-<div class="col-md-2"></div>

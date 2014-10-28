@@ -10,15 +10,13 @@ app.factory('Profile', ['FIREBASE_URL', '$firebase', 'Post', '$q',
 			getPosts: function (userId) {
 				var defer = $q.defer();
 
-				$firebase(ref.child('user_posts').child(userId))
-					.$asArray()
-					.$loaded()
+				$firebase(ref.child('user_posts').child(userId)).$asArray().$loaded()
 					.then(function (data) {
 						var posts = {};
-						for (var i = 0; i < data.length; i++) {
-							var value = data[i].$value;
-							posts[value] = Post.find(value);
-						}
+						data.forEach(function(post) {
+							var key = post.$id;
+							posts[key] = Post.find(key);
+						});
 						defer.resolve(posts);
 					});
 
